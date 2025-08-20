@@ -1,6 +1,7 @@
 package com.devsuperior.dslist_resolvido.dto;
 
-import com.devsuperior.dslist_resolvido.entities.Game; 
+import com.devsuperior.dslist_resolvido.entities.Game;
+import com.devsuperior.dslist_resolvido.projections.GameMinProjection;   
 
 public class GameMinDTO {
 
@@ -11,6 +12,15 @@ public class GameMinDTO {
     private String shortDescription;
 
     public GameMinDTO() {
+    }
+
+
+    public GameMinDTO(GameMinProjection projection) {
+        id = projection.getId();
+        title = projection.getTitle();
+        year = projection.getYear();
+        imgUrl = projection.getImgUrl();
+        shortDescription = projection.getShortDescription();
     }
 
     public GameMinDTO(Game entity) {
